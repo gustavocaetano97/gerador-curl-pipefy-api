@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Curl para API Pipefy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Curl para API Pipefy</h1>
+        
+        <div class="token-container">
+            <h2>Token de Autenticação</h2>
+            <div class="token-input">
+                <input type="text" id="api-token" placeholder="Insira seu token de API do Pipefy">
+                <button id="save-token">Salvar Token</button>
+            </div>
+            <p class="token-info">O token será salvo apenas no seu navegador.</p>
+        </div>
+        
+        <div class="default-ids-container">
+            <h2>IDs Padrão</h2>
+            <div class="default-ids">
+                <div class="id-group">
+                    <label for="default-org-id">ID da Organização</label>
+                    <input type="text" id="default-org-id" placeholder="ID padrão da organização">
+                </div>
+                <div class="id-group">
+                    <label for="default-pipe-id">ID do Pipe</label>
+                    <input type="text" id="default-pipe-id" placeholder="ID padrão do pipe">
+                </div>
+                <button id="save-ids">Salvar IDs</button>
+            </div>
+            <p class="ids-info">Os IDs serão salvos apenas no seu navegador.</p>
+        </div>
+        
+        <div class="resource-selector">
+            <h2>Selecione o recurso:</h2>
+            <div class="resource-buttons">
+                <button class="resource-btn active" data-resource="pipes">Pipes</button>
+                <button class="resource-btn" data-resource="cards">Cards</button>
+                <button class="resource-btn" data-resource="organizations">Organizations</button>
+            </div>
+        </div>
+        
+        <div class="operation-selector">
+            <h2>Selecione a operação:</h2>
+            <div class="operation-container" id="pipes-operations">
+                <button class="operation-btn" data-operation="list">Listar Pipes</button>
+                <button class="operation-btn" data-operation="get">Obter Pipe por ID</button>
+                <button class="operation-btn" data-operation="create">Criar Pipe</button>
+                <button class="operation-btn" data-operation="update">Atualizar Pipe</button>
+                <button class="operation-btn" data-operation="delete">Excluir Pipe</button>
+            </div>
+            
+            <div class="operation-container" id="cards-operations" style="display: none;">
+                <button class="operation-btn" data-operation="list">Listar Cards</button>
+                <button class="operation-btn" data-operation="get">Obter Card por ID</button>
+                <button class="operation-btn" data-operation="create">Criar Card</button>
+                <button class="operation-btn" data-operation="update">Atualizar Card</button>
+                <button class="operation-btn" data-operation="delete">Excluir Card</button>
+            </div>
+            
+            <div class="operation-container" id="organizations-operations" style="display: none;">
+                <button class="operation-btn" data-operation="list">Listar Organizations</button>
+                <button class="operation-btn" data-operation="get">Obter Organization por ID</button>
+                <button class="operation-btn" data-operation="create">Criar Organization</button>
+                <button class="operation-btn" data-operation="update">Atualizar Organization</button>
+            </div>
+        </div>
+        
+        <div class="params-container" id="params-form">
+            <!-- Parâmetros dinâmicos serão inseridos aqui -->
+        </div>
+        
+        <div class="result-container">
+            <h2>Comando Curl:</h2>
+            <div class="curl-result">
+                <pre id="curl-output">Selecione um recurso e uma operação para gerar o comando curl.</pre>
+                <div class="action-buttons">
+                    <button id="copy-btn">Copiar</button>
+                    <button id="execute-btn">Executar Requisição</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="response-container" style="display: none;">
+            <h2>Resposta da API:</h2>
+            <div class="response-result">
+                <pre id="response-output"></pre>
+                <button id="copy-response-btn">Copiar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
